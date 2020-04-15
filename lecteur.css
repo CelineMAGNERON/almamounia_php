@@ -1,0 +1,41 @@
+*,
+html,
+body {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    color: white;
+    padding: 30px;
+    background: url('./source/librarykieran-bis.jpg') fixed no-repeat center;
+    background-position: top;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 5px 15px;
+}
+
+h1 {
+    display: inline;
+    color: white;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+    margin: 0px 10px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
