@@ -27,6 +27,9 @@ a {
     text-decoration: none;
 }
 
+
+/* HEADER */
+
 header {
     position: fixed;
     top: 0;
@@ -92,78 +95,29 @@ aside nav ul li a {
     font-weight: normal;
 }
 
-main {
-    background: rgba(255, 255, 255, 0.4);
-    flex: 4;
-    display: flex;
-}
-
-.container {
-    display: flex;
-    background: rgba(0, 0, 0, 0.4);
-    margin: 32px 64px;
-}
-
-.container>div {
-    flex: 1;
-    padding: 32px 64px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.container .cover {
-    max-width: 100%;
-}
-
-hr {
-    margin: 32px 0;
-}
-
-h3 {
+.connexion {
     font-family: 'Kaushan Script', cursive;
-    font-size: 30px;
-    margin: 0px 0px 20px 0px;
+    font-size: 20px;
 }
 
-.wrapper-text {
-    width: 200%;
+
+/* FIN HEADER */
+
+.login {
+    background: rgba(0, 0, 0, .1)
 }
 
-.wrapper-text p {
-    padding-left: 36px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    line-height: 18px;
-    padding-left: 36px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    line-height: 18px;
-    width: 49%;
-    display: inline-block;
-    /* transition: ease-in 350ms; */
+.signin {
+    background: rgba(0, 0, 0, .1);
 }
 
-p.next {
-    padding-left: 81px;
+input {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.suivant {
-    display: flex;
-    align-self: center;
-    margin-right: 8px;
-    padding: 8px;
-    border-radius: 50%;
-    border: 1px solid white;
-    background: none;
-    font-size: 24px;
-    width: 32px;
-    height: 32px;
-    line-height: 12px;
-}
 
-.suivant:hover {
-    background: rgba(255, 255, 255, 0.4);
-}
+/* FOOTER */
 
 footer {
     position: fixed;
