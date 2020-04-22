@@ -1,3 +1,4 @@
+/* Animation pour simulation de changement de page de livre */
 const mafunction = () => {
     const textes = document.querySelectorAll('.wrapper-text p')
     textes.forEach(text => {

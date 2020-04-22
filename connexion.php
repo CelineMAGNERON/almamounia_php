@@ -19,8 +19,9 @@
 <?php
 $title = "Se connecter";
 $page = "connexion";
+$error = null;
 /* Inclusion et exécution du fichier Header */
-require 'header.php'; ?>
+require './layout/header.php'; ?>
 
 <main>
     <?php
@@ -29,72 +30,103 @@ require 'header.php'; ?>
     ?>
 
     <div class="titre">
-        <h3>Nous vous attendions cher disciple</h3>
+        <span>Nous vous attendions cher disciple</span>
     </div>
 
-    </br>
-
-    <!-- CONNEXION A LA SESSION -->
+    <!---------------------------- 
+            CONNEXION A LA SESSION 
+    ----------------------------->
     <div class="login">
-        <p>Log in</p>
+        <span class="come_in">Log in</span>
         <form method="post">
-            <input type="text" name="log_pseudo" id="log_pseudo" placeholder="Votre pseudo" required label for="">
-            <input type="password" name="log_password" id="log_password" placeholder="Votre mot de passe" required label
-                for="">
-            <input type="submit" name="formlogin" id="formlogin" value="Me connecter" label for="">
-        </form>
+            <div class="column">
+                <input type="text" name="log_pseudo" id="log_pseudo" placeholder="Votre pseudo" required>
+                <input type="password" name="log_password" id="log_password" placeholder="Votre mot de passe" required>
+            </div>
+            <div class="column">
+                <input class="submit" type="submit" name="formlogin" id="formlogin" value="Me connecter">
+            </div>
+    </div>
 
-        <?php
-        if (isset($_POST['formlogin'])) {
-            extract($_POST);
-            if (!empty($log_pseudo) && !empty($log_password)) {
-                $dbquery = $database->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
-                $dbquery->execute(['pseudo' => $log_pseudo]);
-                $result = $dbquery->fetch();
+    </form>
 
-                if ($result == true) // vérification si le compte existe bien
-                {
-                    $hashpass = $result['password'];
-                    if (password_verify($log_password, $hashpass)) {
-                        echo "Bienvenue " . $log_pseudo . " :)";
-                    }
-                    // ok le compte existe bien, sinon ...
-                    else {
-                        echo "Le mot de passe n'est pas correcte.";
-                    }
-                } else // le compte n'existe pas 
-                {
-                    echo "Oups, nous ne connaissons pas de " . $log_pseudo . " ici  :/";
-                }
-            } else // le compte existe ais erreur de saisie
+    <?php
+    if (isset($_POST['formlogin'])) {
+        extract($_POST);
+        if (!empty($log_pseudo) && !empty($log_password)) {
+            $dbquery = $database->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+            $dbquery->execute(['pseudo' => $log_pseudo]);
+            $result = $dbquery->fetch();
+
+            if ($result == true) // vérification si le compte existe bien
             {
-                echo "Votre pseudo ne correspond pas à votre mot de passe";
+                $hashpass = $result['password'];
+                if (password_verify($log_password, $hashpass)) {
+                    echo "Bienvenue " . $log_pseudo . " :)";
+                }
+                // ok le compte existe bien, sinon ...
+                else {
+                    echo "Le mot de passe n'est pas correcte.";
+                }
+            } else // le compte n'existe pas 
+            {
+                echo "Oups, nous ne connaissons pas de " . $log_pseudo . " ici  :/";
             }
+        } else // le compte existe mais erreur de saisie
+        {
+            echo "Votre pseudo ne correspond pas à votre mot de passe";
         }
-        ?>
+    }
+    ?>
     </div>
 
     </br>
     </br>
 
-    <!-- CREATION D'UNE SESSION -->
+    <!---------------------------- 
+            CREATION D'UNE SESSION 
+    ----------------------------->
     <div class="signin">
-        <h3>Sign in</h3>
+        <div class="come_in">
+            <span>Sign in</span>
+        </div>
         <form method="post">
-            <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" required label for="">
-            <input type="email" name="email" id="email" placeholder="Votre email" required label for="">
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required label for="">
-            <input type="password" name="cpassword" id="cpassword" placeholder="Confirmez votre mot de passe" required
-                label for="">
-            <label for="man">Homme</label>
-            <input type="radio" id="sexe" name="sexe">
-            <label for="woman">Femme</label>
-            <input type="radio" id="sexe" name="sexe">
-            <label for="nobinary">Non binaire</label>
-            <input type="radio" id="sexe" name="sexe">
-            <label for="age">Votre tranche d'âge</label>
-            <input type="number" name="age" placeholder="12" min="12" max="110">
-            <input type="submit" name="formsend" id="formsend" value="M'inscrire" label for="">
+            <?php if (isset($_POST['error'])) {
+                echo $_POST['error'];
+            } ?>
+            <div>
+                <div class="column">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" required>
+                    <input type="email" name="email" id="email" placeholder="Votre email" required>
+                </div>
+                <div class="column">
+                    <input type="password" name="password" id="password" placeholder="Votre mot de passe" required>
+                    <input type="password" name="cpassword" id="cpassword" placeholder="Confirmez votre mot de passe"
+                        required>
+                </div>
+            </div>
+            <div class="column">
+                <label for="man">Homme</label>
+                <input type="radio" id="man" name="sexe" value="man">
+                <label for="woman">Femme</label>
+                <input type="radio" id="woman" name="sexe" value="woman">
+                <label for="nobinary">Non binaire</label>
+                <input type="radio" id="nobinary" name="sexe" value="nobinary">
+            </div>
+            <div class="column">
+
+                <label for="age">Votre tranche d'âge</label>
+                <input type="number" name="age" placeholder="12" min="12" max="110">
+            </div>
+            <div class="column">
+                <label for="newsletter">NewsLetter maybe?</label>
+                <input type="checkbox" name="newsLetter" value="newsLetter">
+            </div>
+            <div class="column">
+
+                <input type="submit" name="formsend" id="formsend" value="M'inscrire" label for="">
+            </div>
+
         </form>
 
         <?php
@@ -102,23 +134,27 @@ require 'header.php'; ?>
             extract($_POST);
 
             if (!empty($pseudo) && !empty($email) && !empty($password) && !empty($cpassword)) {
+
                 // coder la vérfication du password car actuellment provoque des erreurs si les mots de passe ont diférents
                 if ($password == $cpassword) {
                     $options = [
                         'cost' => 12,
                     ];
                     $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+                } else {
+                    echo "Raté";
+                    return false;
                 }
 
-                include 'database.php';
-                global $database;
-                $dbquery = $database->prepare("INSERT INTO users(pseudo,email,password,sexe,age) VALUES(:pseudo,:email,:password,:sexe,:age)");
+
+                $dbquery = $database->prepare("INSERT INTO users(pseudo,email,password,sexe,age, newsLetter) VALUES(:pseudo,:email,:password,:sexe,:age,:newsLetter)");
                 $dbquery->execute([
                     'pseudo' => $pseudo,
                     'email' => $email,
                     'password' => $hashpass,
                     'sexe' => $sexe,
-                    'age' => $age
+                    'age' => $age,
+                    'newsLetter' => isset($newsLetter) ? 1 : 0
                 ]);
             } else {
                 echo "Veuillez remplir tous les champs requis";
@@ -126,10 +162,49 @@ require 'header.php'; ?>
         }
         ?>
     </div>
+
+    <br />
+
+    <div>
+        <table
+            style="background:purple; table-layout: fixed; width: 100%; border-collapse:collapse ; border: 1px solid white">
+            <thead>
+                <tr>
+                    <th style="padding: 10px; font-style: italic" scope="col">Pseudo</th>
+                    <th style="font-style: italic" scope="col">Email</th>
+                    <th style="font-style: italic" scope="col">Sexe</th>
+                    <th style="font-style: italic" scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <caption>Les membres de la communauté</caption>
+                    <?php
+                    $dbquery = $database->query('SELECT * FROM users');
+                    while ($users = $dbquery->fetch()) {
+                    ?>
+                    <td style="padding: 5px; text-align: center;">
+                        <span><?= $users['pseudo']; ?> </span></td>
+                    <td style="text-align: center;">
+                        <span><?= $users['email']; ?> </span></td>
+                    <td style="text-align: center;">
+                        <span><?= $users['sexe']; ?> </span></td>
+                    <td style="text-align: center;">
+                        <span><?= $users['age']; ?></span></td>
+                </tr>
+                <?php
+                    } ?>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
 </main>
 
 <!-- Inclusion et exécution du fichier Footer -->
-<?php require 'footer.php'; ?>
+<?php require './layout/footer.php'; ?>
 
 </body>
 

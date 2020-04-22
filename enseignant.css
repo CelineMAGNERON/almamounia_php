@@ -1,3 +1,7 @@
+/*********************************
+*     MAIN CSS
+**********************************/
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,6 +30,11 @@ a {
     font-size: 14px;
     text-decoration: none;
 }
+
+
+/*********************************
+*     HEADER CSS
+**********************************/
 
 header {
     position: fixed;
@@ -91,6 +100,16 @@ aside nav ul li a {
 .subitem>li a {
     font-weight: normal;
 }
+
+.connexion {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+}
+
+
+/*********************************
+*     page ENSEIGNANT CSS
+**********************************/
 
 main {
     background: rgba(255, 255, 255, 0.4);
@@ -164,6 +183,11 @@ p.next {
 .suivant:hover {
     background: rgba(255, 255, 255, 0.4);
 }
+
+
+/*********************************
+*     FOOTER CSS
+**********************************/
 
 footer {
     position: fixed;

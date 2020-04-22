@@ -6,7 +6,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <!-- formatage de la page d'accueil à partir de la feuille de style css -->
     <meta name="viewport" content="width=device-width, initial-scale=1"
         content="Al Mamounia et ses enseignements. Ce site propose de partir à la découverte d'une philosophie laïque et spirituelle.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +16,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
+<!-- Inclusion et exécution du fichier Header -->
+<?php require './layout/header.php'; ?>
 
-<?php require 'header.php'; ?>
-
-<main>
+<main class="index">
     <div id="home" class="section">
         <div>
             <h1>Bienvenue dans les mondes d'Al Mamounia</h1>
@@ -69,7 +70,7 @@
     </div>
 </main>
 
-<?php require 'footer.php'; ?>
+<?php require './layout/footer.php'; ?>
 
 </body>
 

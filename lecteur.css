@@ -1,41 +1,120 @@
-*,
-html,
-body {
+* {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    color: white;
 }
 
 html,
 body {
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 body {
-    color: white;
-    padding: 30px;
-    background: url('./source/librarykieran-bis.jpg') fixed no-repeat center;
-    background-position: top;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
+    background: #1B4353;
+    display: flex;
+    padding-top: 70px;
+    padding-bottom: 48px;
 }
+
+a {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+/* HEADER */
 
 header {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    top: 0;
-    margin: 5px 15px;
+    height: 70px;
+    background: rgba(0, 0, 0, .3);
 }
 
-h1 {
-    display: inline;
-    color: white;
+header nav {
+    display: flex;
+    padding: 0px 16px;
+    align-items: center;
+    height: 100%
+}
+
+.site-title {
     font-family: 'Kaushan Script', cursive;
-    font-size: 50px;
-    margin: 0px 10px;
+    font-size: 32px;
 }
 
-p {
-    font-family: 'Open Sans', sans-serif;
+.site-title img {
+    margin-right: 8px;
+}
+
+.nav-links-wrapper {
+    list-style: none;
+    display: flex;
+    margin-left: 16px;
+}
+
+.nav-links-wrapper li a {
+    padding: 16px 32px;
+}
+
+.nav-links-wrapper li a.active {
+    font-weight: bold;
+}
+
+aside {
+    flex: 1;
+    padding: 16px;
+}
+
+ul.subitem {
+    margin-left: 16px;
+    display: none;
+}
+
+li:hover ul.subitem {
+    display: block;
+}
+
+aside li {
+    padding: 8px 16px;
+}
+
+aside nav ul li a {
+    font-weight: bold;
+}
+
+.subitem>li a {
+    font-weight: normal;
+}
+
+.connexion {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 20px;
+}
+
+
+/* FIN HEADER */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0px;
+    text-align: center;
+    max-height: 48px;
+    padding: 16px;
+    background: black;
+}
+
+.contact {
+    color: white;
+    text-decoration: none;
 }

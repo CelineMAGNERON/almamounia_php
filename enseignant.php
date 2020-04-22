@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="reset.css" rel="stylesheet">
-    <link rel="stylesheet" href="enseignement.css">
-    <script src="enseignant.js" defer></script>
+    <link rel="stylesheet" href="enseignant.css">
+    <script src="./assets/js/enseignant.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="L'enseignant" />
@@ -20,9 +20,10 @@
 <?php
 $title = "L'enseignant";
 $page = "enseignant";
-require 'header.php'; ?>
+/* Inclusion et exécution du fichier Header */
+require './layout/header.php'; ?>
 
-<!-- organiser le menu en sous menu, intégrant les différent niveau de lecture.  -->
+<!-- Menu intégrant les différents niveaux de lecture  -->
 <aside>
     <nav>
         <ul>
@@ -39,11 +40,11 @@ require 'header.php'; ?>
     </nav>
 </aside>
 
-<!-- Texte -->
+<!-- Intégration des textes - Bientôt relié à la base de données-->
 <main>
     <div class="container">
         <div>
-            <img class="cover" src="source/whale1472343bis.jpg" title="L'enseignement qui est proposé"
+            <img class="cover" src="./assets/images/whale1472343bis.jpg" title="L'enseignement qui est proposé"
                 alt="couverture-chapitre">
 
         </div>
@@ -84,13 +85,15 @@ require 'header.php'; ?>
                 </p>
             </div>
         </div>
+        <!-- Appel de la fonction JS pour Simulation de changement de page de livre -->
         <button class="suivant" onclick="mafunction()">
             <i>></i>
         </button>
     </div>
 </main>
 
-<?php require 'footer.php'; ?>
+<!-- Inclusion et exécution du fichier Footer -->
+<?php require './layout/footer.php'; ?>
 
 </body>
 

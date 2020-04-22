@@ -7,24 +7,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Al Mamounia</title>
-    <link rel="stylesheet" href="lecteur.css">
+    <link rel="stylesheet" href="./assets/css/conteur.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Al Mamounia le lecteur" />
+    <meta name="description" content="Al Mamounia le conteur" />
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
+<?php
+$title = "Le conteur";
+$page = "conteur";
+/* Inclusion et exécution du fichier Header */
+require './layout/header.php'; ?>
 
 <body>
-    <a href="index.html">
-        <img src="source/rsz_compass-rsz.png" alt="Accueil" href="index.html">
-    </a>
-    <header>
-        <h1>Le lecteur</h1>
-    </header>
+    <main>
+        <div>
+            <p>Blibla blou</p>
+        </div>
+    </main>
+
+    <!-- Inclusion et exécution du fichier Footer -->
+    <?php require './layout/footer.php'; ?>
+
 </body>
 
-<div>
-    <p>Blibla blou</p>
-</div></html>
+</html>

@@ -104,53 +104,6 @@ aside nav ul li a {
 .connexion {
     font-family: 'Kaushan Script', cursive;
     font-size: 20px;
-    margin-right: 12px;
-}
-
-
-/*********************************
-*     page CONNEXION CSS
-**********************************/
-
-main .come_in {
-    font-family: 'Kaushan Script', cursive;
-    font-size: 28px;
-    text-align: center;
-}
-
-.login {
-    display: flex;
-    justify-content: center;
-    margin: 16px;
-    padding: 16px;
-    background: rgba(0, 0, 0, .2);
-    flex-direction: column;
-}
-
-.signin {
-    display: flex;
-    justify-content: center;
-    margin: 16px;
-    padding: 16px;
-    background: rgba(0, 0, 0, .2);
-    flex-direction: column;
-}
-
-.column {
-    text-align: center;
-    margin: 16px;
-}
-
-input {
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-}
-
-table,
-th,
-td {
-    border: 1px solid black;
-    border-collapse: collapse;
 }
 
 
